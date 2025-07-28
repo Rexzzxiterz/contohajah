@@ -1,372 +1,226 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Selamat Ulang Tahun Sayangku ❤️ - 1 Agustus</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --primary: #ff6b8b;
-            --secondary: #ffd166;
-            --accent: #ef476f;
-        }
-        
-        body {
-            font-family: 'Poppins', sans-serif;
-            background-color: #fff4f6;
-            color: #333;
-            overflow-x: hidden;
-        }
-        
-        .heart {
-            position: absolute;
-            pointer-events: none;
-            animation: float 6s ease-in-out infinite;
-        }
-        
-        @keyframes float {
-            0%, 100% { transform: translateY(0) rotate(0deg); }
-            50% { transform: translateY(-20px) rotate(10deg); }
-        }
-        
-        .photo-frame {
-            border: 8px solid white;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-            transition: all 0.3s ease;
-        }
-        
-        .photo-frame:hover {
-            transform: scale(1.05) rotate(2deg);
-        }
-        
-        .quote {
-            font-family: 'Dancing Script', cursive;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
-        }
-        
-        .btn-primary {
-            background: linear-gradient(45deg, var(--primary), var(--accent));
-            transition: all 0.3s;
-        }
-        
-        .btn-primary:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 20px rgba(239, 71, 111, 0.3);
-        }
-        
-        .memory-section {
-            background: linear-gradient(135deg, rgba(255,255,255,0.9) 0%, rgba(255,244,246,0.9) 100%);
-        }
-        
-        .heart-beat {
-            animation: heartBeat 1.5s infinite;
-        }
-        
-        @keyframes heartBeat {
-            0% { transform: scale(1); }
-            15% { transform: scale(1.2); }
-            30% { transform: scale(1); }
-            45% { transform: scale(1.2); }
-            60% { transform: scale(1); }
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Selamat Ulang Tahun Sayangku ❤️ - 1 Agustus</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet"/>
+  <style>
+    :root {
+      --primary: #ff6b8b;
+      --secondary: #ffd166;
+      --accent: #ef476f;
+    }
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #fff4f6;
+      color: #333;
+      overflow-x: hidden;
+    }
+    .heart {
+      position: absolute;
+      pointer-events: none;
+      animation: float 6s ease-in-out infinite;
+    }
+    @keyframes float {
+      0%, 100% { transform: translateY(0) rotate(0deg); }
+      50% { transform: translateY(-20px) rotate(10deg); }
+    }
+    .photo-frame {
+      border: 8px solid white;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+      transition: all 0.3s ease;
+    }
+    .photo-frame:hover {
+      transform: scale(1.05) rotate(2deg);
+    }
+    .quote {
+      font-family: 'Dancing Script', cursive;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+    }
+    .btn-primary {
+      background: linear-gradient(45deg, var(--primary), var(--accent));
+      transition: all 0.3s;
+    }
+    .btn-primary:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 20px rgba(239, 71, 111, 0.3);
+    }
+    .memory-section {
+      background: linear-gradient(135deg, rgba(255,255,255,0.9) 0%, rgba(255,244,246,0.9) 100%);
+    }
+    .heart-beat {
+      animation: heartBeat 1.5s infinite;
+    }
+    @keyframes heartBeat {
+      0% { transform: scale(1); }
+      15% { transform: scale(1.2); }
+      30% { transform: scale(1); }
+      45% { transform: scale(1.2); }
+      60% { transform: scale(1); }
+    }
+  </style>
 </head>
 <body class="relative">
-    <!-- Floating hearts background -->
-    <div id="hearts-container"></div>
-    
-    <!-- Hero Section -->
-    <section class="min-h-screen flex flex-col items-center justify-center relative overflow-hidden px-4 py-20">
-        <div class="absolute inset-0 bg-gradient-to-br from-pink-100 to-amber-50 opacity-70 z-0"></div>
-        
-        <div class="relative z-10 text-center max-w-4xl mx-auto">
-            <div class="heart-beat mb-6">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-24 w-24 mx-auto text-red-500" viewBox="0 0 20 20" fill="currentColor">
-                    <path fill-rule="evenodd" d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z" clip-rule="evenodd" />
-                </svg>
-            </div>
-            
-            <h1 class="text-5xl md:text-7xl font-bold mb-6 text-pink-600 quote">Selamat Ulang Tahun</h1>
-            <h2 class="text-3xl md:text-5xl font-semibold mb-8 text-amber-600 quote">Sayangku</h2>
-            
-            <div class="mb-8 bg-white bg-opacity-70 rounded-xl p-6 shadow-xl">
-                <p class="text-xl md:text-2xl mb-4">Hari ini adalah hari spesial untuk seseorang yang sangat berarti dalam hidupku</p>
-                <div id="countdown" class="grid grid-cols-4 gap-4 max-w-md mx-auto">
-                    <div class="bg-pink-500 text-white rounded-lg p-4">
-                        <div class="text-3xl font-bold" id="days">00</div>
-                        <div class="text-sm">Hari</div>
-                    </div>
-                    <div class="bg-pink-400 text-white rounded-lg p-4">
-                        <div class="text-3xl font-bold" id="hours">00</div>
-                        <div class="text-sm">Jam</div>
-                    </div>
-                    <div class="bg-pink-300 text-white rounded-lg p-4">
-                        <div class="text-3xl font-bold" id="minutes">00</div>
-                        <div class="text-sm">Menit</div>
-                    </div>
-                    <div class="bg-pink-200 text-white rounded-lg p-4">
-                        <div class="text-3xl font-bold" id="seconds">00</div>
-                        <div class="text-sm">Detik</div>
-                    </div>
-                </div>
-            </div>
-            
-            <button id="music-btn" class="btn-primary text-white font-semibold px-8 py-3 rounded-full text-lg mb-8">
-                Putar Musik
-            </button>
-            
-            <div class="animate-bounce mt-4">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 mx-auto text-pink-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
-                </svg>
-            </div>
+
+  <div id="hearts-container"></div>
+
+  <!-- Hero Section -->
+  <section class="min-h-screen flex flex-col items-center justify-center relative overflow-hidden px-4 py-20">
+    <div class="absolute inset-0 bg-gradient-to-br from-pink-100 to-amber-50 opacity-70 z-0"></div>
+
+    <div class="relative z-10 text-center max-w-4xl mx-auto">
+      <div class="heart-beat mb-6">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-24 w-24 mx-auto text-red-500" viewBox="0 0 20 20" fill="currentColor">
+          <path fill-rule="evenodd" d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z" clip-rule="evenodd"/>
+        </svg>
+      </div>
+
+      <h1 class="text-5xl md:text-7xl font-bold mb-6 text-pink-600 quote">Selamat Ulang Tahun</h1>
+      <h2 class="text-3xl md:text-5xl font-semibold mb-8 text-amber-600 quote">Sayangku</h2>
+
+      <div class="mb-8 bg-white bg-opacity-70 rounded-xl p-6 shadow-xl">
+        <p class="text-xl md:text-2xl mb-4">Hari ini adalah hari spesial untuk seseorang yang sangat berarti dalam hidupku</p>
+        <div id="countdown" class="grid grid-cols-4 gap-4 max-w-md mx-auto">
+          <div class="bg-pink-500 text-white rounded-lg p-4">
+            <div class="text-3xl font-bold" id="days">00</div>
+            <div class="text-sm">Hari</div>
+          </div>
+          <div class="bg-pink-400 text-white rounded-lg p-4">
+            <div class="text-3xl font-bold" id="hours">00</div>
+            <div class="text-sm">Jam</div>
+          </div>
+          <div class="bg-pink-300 text-white rounded-lg p-4">
+            <div class="text-3xl font-bold" id="minutes">00</div>
+            <div class="text-sm">Menit</div>
+          </div>
+          <div class="bg-pink-200 text-white rounded-lg p-4">
+            <div class="text-3xl font-bold" id="seconds">00</div>
+            <div class="text-sm">Detik</div>
+          </div>
         </div>
-    </section>
-    
-    <!-- Memory Section -->
-    <section class="memory-section py-20 px-4">
-        <div class="max-w-6xl mx-auto">
-            <div class="text-center mb-16">
-                <h2 class="text-4xl font-bold text-pink-600 mb-4 quote">Kenangan Indah Kita</h2>
-                <p class="text-xl text-gray-600 max-w-2xl mx-auto">Setiap momen bersamamu adalah anugerah terindah dalam hidupku</p>
-            </div>
-            
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Memory 1 -->
-                <div class="memory-card bg-white rounded-xl overflow-hidden shadow-lg transition-all duration-300 hover:shadow-xl">
-                    <div class="photo-frame overflow-hidden">
-                        <img src="https://files.catbox.moe/8do92y.jpeg" alt="dua karakter free fire lagi bermain mode social island" class="w-full h-64 object-cover transition-all duration-500 hover:scale-110" />
-                    </div>
-                    <div class="p-6">
-                        <h3 class="text-xl font-semibold text-pink-600 mb-2">Pertama kita ketemu</h3>
-                        <p class="text-gray-600">Ingat ketika kita pertama kali ketemu disini?</p>
-                        <p class="text-sm text-gray-500 mt-2">3 Juli 2024</p>
-                    </div>
-                </div>
-                
-                <!-- Memory 2 -->
-                <div class="memory-card bg-white rounded-xl overflow-hidden shadow-lg transition-all duration-300 hover:shadow-xl">
-                    <div class="photo-frame overflow-hidden">
-                        <img src="https://files.catbox.moe/tzrhbj.jpeg" alt="dua karakter free fire sedang berduaan di loby" class="w-full h-64 object-cover transition-all duration-500 hover:scale-110" />
-                    </div>
-                    <div class="p-6">
-                        <h3 class="text-xl font-semibold text-pink-600 mb-2">Pertama kali mabar</h3>
-                        <p class="text-gray-600">Hari pertama kali kita mabar apakah masih ingat?</p>
-                        <p class="text-sm text-gray-500 mt-2">3 Juli 2024</p>
-                    </div>
-                </div>
-                
-                <!-- Memory 3 -->
-                <div class="memory-card bg-white rounded-xl overflow-hidden shadow-lg transition-all duration-300 hover:shadow-xl">
-                    <div class="photo-frame overflow-hidden">
-                        <img src="https://files.catbox.moe/91d4jh.jpg" alt="Pasangan sedang chat chatan" class="w-full h-64 object-cover transition-all duration-500 hover:scale-110" />
-                    </div>
-                    <div class="p-6">
-                        <h3 class="text-xl font-semibold text-pink-600 mb-2">Pertama kali kita chatan</h3>
-                        <p class="text-gray-600">Awal chatan masih temenan</p>
-                        <p class="text-sm text-gray-500 mt-2">7 Juli 2024</p>
-                    </div>
-                </div>
-            </div>
+      </div>
+
+      <button id="music-btn" class="btn-primary text-white font-semibold px-8 py-3 rounded-full text-lg mb-8">Putar Musik</button>
+
+      <div class="animate-bounce mt-4">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 mx-auto text-pink-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+        </svg>
+      </div>
+
+      <div class="mt-6">
+        <a href="#memory" class="inline-block text-white bg-pink-500 hover:bg-pink-600 transition px-6 py-3 rounded-full text-lg font-semibold shadow-md">
+          Klik di sini ↓
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Memory Section -->
+  <section id="memory" class="memory-section py-20 px-4">
+    <!-- Isi kenanganmu yang sudah ada sebelumnya masuk di sini -->
+    <!-- Contoh 3 memory card -->
+    <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <div class="memory-card bg-white rounded-xl overflow-hidden shadow-lg">
+        <div class="photo-frame overflow-hidden">
+          <img src="https://files.catbox.moe/8do92y.jpeg" class="w-full h-64 object-cover" />
         </div>
-    </section>
-    
-    <!-- Message Section -->
-    <section class="py-20 px-4 bg-pink-50">
-        <div class="max-w-4xl mx-auto text-center">
-            <h2 class="text-4xl font-bold text-pink-600 mb-12 quote">Untuk Pacarku Yang Tercinta</h2>
-            
-            <div class="bg-white rounded-xl p-8 md:p-12 shadow-lg mb-8 text-left">
-                <p class="text-lg md:text-xl text-gray-700 mb-6">
-                    Sayangku, di hari ulang tahunmu ini, aku ingin mengucapkan selamat untuk orang yang paling istimewa dalam hidupku. 
-                </p>
-                <p class="text-lg md:text-xl text-gray-700 mb-6">
-                    Setiap hari bersamamu adalah halaman baru dalam buku cerita indah yang kita tulis bersama. Kamu membuat hidupku lebih berwarna, lebih berarti, dan penuh dengan cinta.
-                </p>
-                <p class="text-lg md:text-xl text-gray-700 mb-6">
-                    Di hari spesialmu ini, aku berdoa agar Tuhan memberkahimu dengan kebahagiaan, kesehatan, dan segala kebaikan dalam hidup. Aku bersyukur bisa menjadi bagian dari perjalanan hidupmu.
-                </p>
-                <p class="text-lg md:text-xl text-gray-700">
-                    Selamat ulang tahun, sayang. Semoga tahun ini membawa lebih banyak tawa, cinta, dan impian yang menjadi kenyataan untuk kita berdua.
-                </p>
-            </div>
-            
-            <button id="surprise-btn" class="btn-primary text-white font-semibold px-8 py-3 rounded-full text-lg mb-8">
-                Klik untuk Kejutan!
-            </button>
-            
-            <div id="surprise-box" class="hidden bg-white rounded-xl p-8 shadow-lg mt-8 animate__animated animate__fadeIn">
-                <h3 class="text-2xl font-bold text-pink-600 mb-4">❤️ Aku Sayang Kamu ❤️</h3>
-                <p class="text-lg text-gray-600">Terima kasih sudah menjadi bagian hidupku. Aku berjanji akan selalu membuatmu bahagia!</p>
-                <div class="mt-4 grid grid-cols-3 gap-2 max-w-xs mx-auto">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 text-red-500" viewBox="0 0 20 20" fill="currentColor">
-                        <path fill-rule="evenodd" d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z" clip-rule="evenodd" />
-                    </svg>
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 text-red-500" viewBox="0 0 20 20" fill="currentColor">
-                        <path fill-rule="evenodd" d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z" clip-rule="evenodd" />
-                    </svg>
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 text-red-500" viewBox="0 0 20 20" fill="currentColor">
-                        <path fill-rule="evenodd" d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z" clip-rule="evenodd" />
-                    </svg>
-                </div>
-            </div>
+        <div class="p-6">
+          <h3 class="text-xl font-semibold text-pink-600 mb-2">Pertama kita ketemu</h3>
+          <p class="text-gray-600">Ingat ketika kita pertama kali ketemu disini?</p>
+          <p class="text-sm text-gray-500 mt-2">3 Juli 2024</p>
         </div>
-    </section>
-    
-    <!-- Footer -->
-    <footer class="bg-pink-600 text-white py-8 px-4">
-        <div class="max-w-4xl mx-auto text-center">
-            <p class="text-xl mb-4">© Developer Rexzz Official</p>
-            <p class="text-sm">Create 26/07/2025</p>
-            <div class="mt-6 flex justify-center space-x-4">
-                <a href="#" class="w-10 h-10 rounded-full bg-white bg-opacity-20 flex items-center justify-center">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="currentColor" viewBox="0 0 24 24">
-                        <path d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm3 8h-1.35c-.538 0-.65.221-.65.778v1.222h2l-.209 2h-1.791v7h-3v-7h-2v-2h2v-2.308c0-1.769.931-2.692 3.029-2.692h1.971v3z" />
-                    </svg>
-                </a>
-                <a href="#" class="w-10 h-10 rounded-full bg-white bg-opacity-20 flex items-center justify-center">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="currentColor" viewBox="0 0 24 24">
-                        <path d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm6.066 9.645c.183 4.04-2.83 8.544-8.164 8.544-1.622 0-3.131-.476-4.402-1.291 1.524.18 3.045-.244 4.252-1.189-1.256-.023-2.317-.854-2.684-1.995.451.086.895.061 1.298-.049-1.381-.278-2.335-1.522-2.304-2.853.388.215.83.344 1.301.359-1.279-.855-1.641-2.544-.889-3.835 1.416 1.738 3.533 2.881 5.92 3.001-.419-1.796.944-3.527 2.799-3.527.825 0 1.572.349 2.096.907.654-.128 1.27-.368 1.824-.697-.215.671-.67 1.233-1.263 1.589.581-.07 1.135-.224 1.649-.453-.384.578-.87 1.084-1.433 1.489z" />
-                    </svg>
-                </a>
-                <a href="#" class="w-10 h-10 rounded-full bg-white bg-opacity-20 flex items-center justify-center">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="currentColor" viewBox="0 0 24 24">
-                        <path d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm-2 16h-2v-6h2v6zm-1-6.891c-.607 0-1.1-.496-1.1-1.109 0-.612.492-1.109 1.1-1.109s1.1.497 1.1 1.109c0 .613-.493 1.109-1.1 1.109zm8 6.891h-1.998v-2.861c0-1.881-2.002-1.722-2.002 0v2.861h-2v-6h2v1.093c.872-1.616 4-1.736 4 1.548v3.359z" />
-                    </svg>
-                </a>
-            </div>
+      </div>
+      <div class="memory-card bg-white rounded-xl overflow-hidden shadow-lg">
+        <div class="photo-frame overflow-hidden">
+          <img src="https://files.catbox.moe/tzrhbj.jpeg" class="w-full h-64 object-cover" />
         </div>
-    </footer>
-    
-    <!-- Audio Element -->
-    <audio id="bg-music" loop>
-        <source src="https://files.catbox.moe/3re72v.mp3" type="audio/mpeg">
-        Browser Anda tidak mendukung elemen audio.
-    </audio>
-    
-    <script>
-        // Create floating hearts
-        function createHearts() {
-            const container = document.getElementById('hearts-container');
-            const colors = ['#ff6b8b', '#ff8fab', '#ffb3c1', '#ffd166', '#ef476f'];
-            
-            for (let i = 0; i < 15; i++) {
-                const heart = document.createElement('div');
-                heart.className = 'heart';
-                heart.innerHTML = '❤️';
-                heart.style.left = Math.random() * 100 + 'vw';
-                heart.style.top = Math.random() * 100 + 'vh';
-                heart.style.fontSize = (Math.random() * 20 + 10) + 'px';
-                heart.style.color = colors[Math.floor(Math.random() * colors.length)];
-                heart.style.animationDuration = (Math.random() * 5 + 3) + 's';
-                heart.style.opacity = Math.random() * 0.5 + 0.3;
-                container.appendChild(heart);
-            }
+        <div class="p-6">
+          <h3 class="text-xl font-semibold text-pink-600 mb-2">Pertama kali mabar</h3>
+          <p class="text-gray-600">Hari pertama kali kita mabar apakah masih ingat?</p>
+          <p class="text-sm text-gray-500 mt-2">3 Juli 2024</p>
+        </div>
+      </div>
+      <div class="memory-card bg-white rounded-xl overflow-hidden shadow-lg">
+        <div class="photo-frame overflow-hidden">
+          <img src="https://files.catbox.moe/91d4jh.jpg" class="w-full h-64 object-cover" />
+        </div>
+        <div class="p-6">
+          <h3 class="text-xl font-semibold text-pink-600 mb-2">Pertama kali kita chatan</h3>
+          <p class="text-gray-600">Awal chatan masih temenan</p>
+          <p class="text-sm text-gray-500 mt-2">7 Juli 2024</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Audio -->
+  <audio id="bg-music" loop>
+    <source src="https://files.catbox.moe/3re72v.mp3" type="audio/mpeg" />
+  </audio>
+
+  <!-- Script -->
+  <script>
+    function createHearts() {
+      const container = document.getElementById('hearts-container');
+      const colors = ['#ff6b8b', '#ff8fab', '#ffb3c1', '#ffd166', '#ef476f'];
+      for (let i = 0; i < 15; i++) {
+        const heart = document.createElement('div');
+        heart.className = 'heart';
+        heart.innerHTML = '❤️';
+        heart.style.left = Math.random() * 100 + 'vw';
+        heart.style.top = Math.random() * 100 + 'vh';
+        heart.style.fontSize = (Math.random() * 20 + 10) + 'px';
+        heart.style.color = colors[Math.floor(Math.random() * colors.length)];
+        heart.style.animationDuration = (Math.random() * 5 + 3) + 's';
+        heart.style.opacity = Math.random() * 0.5 + 0.3;
+        container.appendChild(heart);
+      }
+    }
+
+    function updateCountdown() {
+      const targetDate = new Date();
+      targetDate.setMonth(7);
+      targetDate.setDate(1);
+      if (targetDate < new Date()) {
+        targetDate.setFullYear(targetDate.getFullYear() + 1);
+      }
+      const now = new Date();
+      const diff = targetDate - now;
+      const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+      document.getElementById('days').textContent = days.toString().padStart(2, '0');
+      document.getElementById('hours').textContent = hours.toString().padStart(2, '0');
+      document.getElementById('minutes').textContent = minutes.toString().padStart(2, '0');
+      document.getElementById('seconds').textContent = seconds.toString().padStart(2, '0');
+    }
+
+    function setupMusicPlayer() {
+      const musicBtn = document.getElementById('music-btn');
+      const bgMusic = document.getElementById('bg-music');
+      let isPlaying = false;
+      musicBtn.addEventListener('click', function () {
+        if (isPlaying) {
+          bgMusic.pause();
+          musicBtn.textContent = 'Putar Musik';
+        } else {
+          bgMusic.play();
+          musicBtn.textContent = 'Berhenti Memutar';
         }
-        
-        // Countdown timer
-        function updateCountdown() {
-            // Set the date we're counting down to (August 1st)
-            const targetDate = new Date();
-            targetDate.setMonth(7); // August (month is 0-indexed)
-            targetDate.setDate(1);
-            
-            // If the birthday has already passed this year, set it for next year
-            if (targetDate < new Date()) {
-                targetDate.setFullYear(targetDate.getFullYear() + 1);
-            }
-            
-            const now = new Date();
-            const diff = targetDate - now;
-            
-            const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-            const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
-            const seconds = Math.floor((diff % (1000 * 60)) / 1000);
-            
-            document.getElementById('days').textContent = days.toString().padStart(2, '0');
-            document.getElementById('hours').textContent = hours.toString().padStart(2, '0');
-            document.getElementById('minutes').textContent = minutes.toString().padStart(2, '0');
-            document.getElementById('seconds').textContent = seconds.toString().padStart(2, '0');
-        }
-        
-        // Music player
-        function setupMusicPlayer() {
-            const musicBtn = document.getElementById('music-btn');
-            const bgMusic = document.getElementById('bg-music');
-            let isPlaying = false;
-            
-            musicBtn.addEventListener('click', function() {
-                if (isPlaying) {
-                    bgMusic.pause();
-                    musicBtn.textContent = 'Putar Musik Romantis';
-                } else {
-                    bgMusic.play();
-                    musicBtn.textContent = 'Berhenti Memutar';
-                }
-                isPlaying = !isPlaying;
-            });
-        }
-        
-        // Surprise button
-        function setupSurpriseButton() {
-            const surpriseBtn = document.getElementById('surprise-btn');
-            const surpriseBox = document.getElementById('surprise-box');
-            
-            surpriseBtn.addEventListener('click', function() {
-                surpriseBox.classList.toggle('hidden');
-                
-                // Create floating hearts when surprise is revealed
-                if (!surpriseBox.classList.contains('hidden')) {
-                    for (let i = 0; i < 10; i++) {
-                        setTimeout(() => {
-                            createHeartAtPosition(surpriseBox);
-                        }, i * 200);
-                    }
-                }
-            });
-        }
-        
-        // Create a heart at specific element position
-        function createHeartAtPosition(element) {
-            const rect = element.getBoundingClientRect();
-            const heart = document.createElement('div');
-            heart.className = 'heart';
-            heart.innerHTML = '❤️';
-            heart.style.left = (rect.left + rect.width/2) + 'px';
-            heart.style.top = rect.top + 'px';
-            heart.style.fontSize = '24px';
-            heart.style.color = '#ef476f';
-            heart.style.animationDuration = '4s';
-            heart.style.position = 'fixed';
-            document.getElementById('hearts-container').appendChild(heart);
-            
-            // Remove heart after animation
-            setTimeout(() => {
-                heart.remove();
-            }, 4000);
-        }
-        
-        // Initialize everything when DOM is loaded
-        document.addEventListener('DOMContentLoaded', function() {
-            createHearts();
-            updateCountdown();
-            setInterval(updateCountdown, 1000);
-            setupMusicPlayer();
-            setupSurpriseButton();
-            
-            // Smooth scrolling for internal links
-            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-                anchor.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    document.querySelector(this.getAttribute('href')).scrollIntoView({
-                        behavior: 'smooth'
-                    });
-                });
-            });
-        });
-    </script>
+        isPlaying = !isPlaying;
+      });
+    }
+
+    document.addEventListener('DOMContentLoaded', function () {
+      createHearts();
+      updateCountdown();
+      setInterval(updateCountdown, 1000);
+      setupMusicPlayer();
+    });
+  </script>
 </body>
 </html>
