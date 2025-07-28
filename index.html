@@ -24,9 +24,13 @@
       z-index: 0;
       pointer-events: none;
     }
+    body.lock-scroll {
+      height: 100vh;
+      overflow: hidden;
+    }
   </style>
 </head>
-<body class="relative">
+<body class="relative lock-scroll">
 
   <!-- Autoplay music on interaction -->
   <audio id="birthdayMusic" loop>
@@ -170,13 +174,16 @@
     setInterval(countdown, 1000);
   </script>
 
-  <!-- Script: Play music and scroll -->
+  <!-- Script: Play music, unlock scroll, scroll to next -->
   <script>
     function playMusicAndScroll() {
       const music = document.getElementById('birthdayMusic');
       music.play().catch(e => {
         console.log("Autoplay gagal, user harus interaksi manual");
       });
+
+      // Hapus kunci scroll dan scroll ke section selanjutnya
+      document.body.classList.remove('lock-scroll');
       document.getElementById('next').scrollIntoView({ behavior: 'smooth' });
     }
   </script>
