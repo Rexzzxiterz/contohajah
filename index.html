@@ -74,6 +74,13 @@
     </style>
 </head>
 <body class="relative">
+    <!-- Settings Button -->
+    <div id="settings-btn" class="absolute top-4 left-4 bg-white rounded-full shadow-lg p-2 cursor-pointer">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-pink-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v8m0 0h4m-4 0H8" />
+        </svg>
+    </div>
+    
     <!-- Floating hearts background -->
     <div id="hearts-container"></div>
     
@@ -233,141 +240,4 @@
                 </a>
                 <a href="#" class="w-10 h-10 rounded-full bg-white bg-opacity-20 flex items-center justify-center">
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="currentColor" viewBox="0 0 24 24">
-                        <path d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm-2 16h-2v-6h2v6zm-1-6.891c-.607 0-1.1-.496-1.1-1.109 0-.612.492-1.109 1.1-1.109s1.1.497 1.1 1.109c0 .613-.493 1.109-1.1 1.109zm8 6.891h-1.998v-2.861c0-1.881-2.002-1.722-2.002 0v2.861h-2v-6h2v1.093c.872-1.616 4-1.736 4 1.548v3.359z" />
-                    </svg>
-                </a>
-            </div>
-        </div>
-    </footer>
-    
-    <!-- Audio Element -->
-    <audio id="bg-music" loop>
-        <source src="https://files.catbox.moe/3re72v.mp3" type="audio/mpeg">
-        Browser Anda tidak mendukung elemen audio.
-    </audio>
-    
-    <script>
-        // Create floating hearts
-        function createHearts() {
-            const container = document.getElementById('hearts-container');
-            const colors = ['#ff6b8b', '#ff8fab', '#ffb3c1', '#ffd166', '#ef476f'];
-            
-            for (let i = 0; i < 15; i++) {
-                const heart = document.createElement('div');
-                heart.className = 'heart';
-                heart.innerHTML = '❤️';
-                heart.style.left = Math.random() * 100 + 'vw';
-                heart.style.top = Math.random() * 100 + 'vh';
-                heart.style.fontSize = (Math.random() * 20 + 10) + 'px';
-                heart.style.color = colors[Math.floor(Math.random() * colors.length)];
-                heart.style.animationDuration = (Math.random() * 5 + 3) + 's';
-                heart.style.opacity = Math.random() * 0.5 + 0.3;
-                container.appendChild(heart);
-            }
-        }
-        
-        // Countdown timer
-        function updateCountdown() {
-            // Set the date we're counting down to (August 1st)
-            const targetDate = new Date();
-            targetDate.setMonth(7); // August (month is 0-indexed)
-            targetDate.setDate(1);
-            
-            // If the birthday has already passed this year, set it for next year
-            if (targetDate < new Date()) {
-                targetDate.setFullYear(targetDate.getFullYear() + 1);
-            }
-            
-            const now = new Date();
-            const diff = targetDate - now;
-            
-            const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-            const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
-            const seconds = Math.floor((diff % (1000 * 60)) / 1000);
-            
-            document.getElementById('days').textContent = days.toString().padStart(2, '0');
-            document.getElementById('hours').textContent = hours.toString().padStart(2, '0');
-            document.getElementById('minutes').textContent = minutes.toString().padStart(2, '0');
-            document.getElementById('seconds').textContent = seconds.toString().padStart(2, '0');
-        }
-        
-        // Music player
-        function setupMusicPlayer() {
-            const musicBtn = document.getElementById('music-btn');
-            const bgMusic = document.getElementById('bg-music');
-            let isPlaying = false;
-            
-            musicBtn.addEventListener('click', function() {
-                if (isPlaying) {
-                    bgMusic.pause();
-                    musicBtn.textContent = 'Putar Musik Romantis';
-                } else {
-                    bgMusic.play();
-                    musicBtn.textContent = 'Berhenti Memutar';
-                }
-                isPlaying = !isPlaying;
-            });
-        }
-        
-        // Surprise button
-        function setupSurpriseButton() {
-            const surpriseBtn = document.getElementById('surprise-btn');
-            const surpriseBox = document.getElementById('surprise-box');
-            
-            surpriseBtn.addEventListener('click', function() {
-                surpriseBox.classList.toggle('hidden');
-                
-                // Create floating hearts when surprise is revealed
-                if (!surpriseBox.classList.contains('hidden')) {
-                    for (let i = 0; i < 10; i++) {
-                        setTimeout(() => {
-                            createHeartAtPosition(surpriseBox);
-                        }, i * 200);
-                    }
-                }
-            });
-        }
-        
-        // Create a heart at specific element position
-        function createHeartAtPosition(element) {
-            const rect = element.getBoundingClientRect();
-            const heart = document.createElement('div');
-            heart.className = 'heart';
-            heart.innerHTML = '❤️';
-            heart.style.left = (rect.left + rect.width/2) + 'px';
-            heart.style.top = rect.top + 'px';
-            heart.style.fontSize = '24px';
-            heart.style.color = '#ef476f';
-            heart.style.animationDuration = '4s';
-            heart.style.position = 'fixed';
-            document.getElementById('hearts-container').appendChild(heart);
-            
-            // Remove heart after animation
-            setTimeout(() => {
-                heart.remove();
-            }, 4000);
-        }
-        
-        // Initialize everything when DOM is loaded
-        document.addEventListener('DOMContentLoaded', function() {
-            createHearts();
-            updateCountdown();
-            setInterval(updateCountdown, 1000);
-            setupMusicPlayer();
-            setupSurpriseButton();
-            
-            // Smooth scrolling for internal links
-            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-                anchor.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    document.querySelector(this.getAttribute('href')).scrollIntoView({
-                        behavior: 'smooth'
-                    });
-                });
-            });
-        });
-    </script>
-</body>
-</html>
-
+                        <path d="M12 0c-6.627 0-12 5.373-12 12s5.373 12
