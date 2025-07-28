@@ -28,8 +28,8 @@
 </head>
 <body class="relative">
 
-  <!-- Autoplay music -->
-  <audio autoplay loop>
+  <!-- Autoplay music on interaction -->
+  <audio id="birthdayMusic" loop>
     <source src="https://files.catbox.moe/3re72v.mp3" type="audio/mp3" />
   </audio>
 
@@ -61,7 +61,8 @@
       </div>
     </div>
 
-    <button onclick="document.getElementById('next').scrollIntoView({ behavior: 'smooth' });" class="bg-pink-500 text-white px-6 py-2 rounded-full shadow-lg hover:bg-pink-600">
+    <!-- Tombol yang mainkan musik & scroll -->
+    <button onclick="playMusicAndScroll()" class="bg-pink-500 text-white px-6 py-2 rounded-full shadow-lg hover:bg-pink-600">
       Klik di sini ↓
     </button>
   </section>
@@ -88,7 +89,7 @@
     </div>
   </section>
 
-  <!-- Love Particle Script -->
+  <!-- Script: Love Particles -->
   <script>
     const canvas = document.getElementById('loveCanvas');
     const ctx = canvas.getContext('2d');
@@ -147,10 +148,10 @@
     });
   </script>
 
-  <!-- Countdown Script -->
+  <!-- Script: Countdown -->
   <script>
     const countdown = () => {
-      const endDate = new Date("2025-08-01T00:00:00").getTime(); // Ganti sesuai tanggal ultah
+      const endDate = new Date("2025-08-01T00:00:00").getTime(); // Ganti jika perlu
       const now = new Date().getTime();
       const timeLeft = endDate - now;
 
@@ -168,5 +169,17 @@
     countdown();
     setInterval(countdown, 1000);
   </script>
+
+  <!-- Script: Play music and scroll -->
+  <script>
+    function playMusicAndScroll() {
+      const music = document.getElementById('birthdayMusic');
+      music.play().catch(e => {
+        console.log("Autoplay gagal, user harus interaksi manual");
+      });
+      document.getElementById('next').scrollIntoView({ behavior: 'smooth' });
+    }
+  </script>
+
 </body>
 </html>
