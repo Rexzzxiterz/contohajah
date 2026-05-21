@@ -67,6 +67,67 @@
     let pending = 0;
     let success = 0;
 
+    function loadPayments() {
+      const paymentList = document.getElementById('paymentList');
+      paymentList.innerHTML = '';
+
+      const data = JSON.parse(localStorage.getItem('wifiPayments')) || [];
+
+      pending = 0;
+      success = 0;
+
+      data.forEach((payment, index) => {
+        if(payment.status === 'PENDING') pending++;
+        if(payment.status === 'SUCCESS') success++;
+
+        const item = document.createElement('div');
+        item.className = payment.status === 'SUCCESS'
+          ? 'bg-black/30 border border-green-400/20 rounded-2xl p-5'
+          : 'bg-black/30 border border-yellow-400/20 rounded-2xl p-5';
+
+        item.innerHTML = `
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-3">
+            <div>
+              <h3 class="text-xl font-bold text-white">Nama: ${payment.nama}</h3>
+              <p class="text-gray-400 text-sm">Hari: ${payment.hari}</p>
+              <p class="text-gray-400 text-sm">Tanggal: ${payment.tanggal}</p>
+              <p class="text-gray-400 text-sm">Waktu: ${payment.jam}</p>
+            </div>
+
+            <span class="${payment.status === 'SUCCESS' ? 'bg-green-500/20 text-green-300' : 'bg-yellow-500/20 text-yellow-300'} px-4 py-2 rounded-full text-sm font-semibold w-fit">
+              ${payment.status}
+            </span>
+          </div>
+
+          <div class="space-y-2 text-sm mb-4">
+            <p class="text-gray-300">Metode Pembayaran: ${payment.metode}</p>
+            <p class="text-gray-300">Total Pembayaran: Rp280.000</p>
+            <p class="text-green-400">Bukti Transfer dari User:</p>
+
+            <div class="mt-3 bg-black/40 border border-white/10 rounded-2xl p-3">
+              <img src="${payment.bukti}" class="w-full rounded-xl object-cover" />
+            </div>
+          </div>
+
+          ${payment.status === 'PENDING' ? `
+          <div class="flex flex-col sm:flex-row gap-3">
+            <button onclick="approvePayment(${index})" class="flex-1 bg-green-500 hover:bg-green-400 py-3 rounded-xl font-bold transition-all">
+              Konfirmasi Success
+            </button>
+
+            <button onclick="rejectPayment(${index})" class="flex-1 bg-red-500 hover:bg-red-400 py-3 rounded-xl font-bold transition-all">
+              Tolak Pembayaran
+            </button>
+          </div>
+          ` : ''}
+        `;
+
+        paymentList.prepend(item);
+      });
+
+      updateStats();
+    }
+
     function loginAdmin() {
       const password = document.getElementById('password').value;
 
@@ -77,6 +138,8 @@
         alert('Password salah');
       }
     }
+
+    window.onload = loadPayments;
 
     function updateStats() {
       document.getElementById('pendingCount').innerText = pending;
@@ -134,26 +197,24 @@
       paymentList.prepend(item);
     }
 
-    function approvePayment(button) {
-      const card = button.closest('.bg-black\/30');
+    function approvePayment(index) {
+      const data = JSON.parse(localStorage.getItem('wifiPayments')) || [];
 
-      pending--;
-      success++;
-      updateStats();
+      data[index].status = 'SUCCESS';
 
-      card.className = 'bg-black/30 border border-green-400/20 rounded-2xl p-5';
+      localStorage.setItem('wifiPayments', JSON.stringify(data));
 
-      card.querySelector('span').className = 'bg-green-500/20 text-green-300 px-4 py-2 rounded-full text-sm font-semibold w-fit';
-      card.querySelector('span').innerText = 'SUCCESS';
-
-      card.querySelector('.flex.flex-col.sm\\:flex-row.gap-3').remove();
+      loadPayments();
     }
 
-    function rejectPayment(button) {
-      const card = button.closest('.bg-black\/30');
-      pending--;
-      updateStats();
-      card.remove();
+    function rejectPayment(index) {
+      const data = JSON.parse(localStorage.getItem('wifiPayments')) || [];
+
+      data.splice(index, 1);
+
+      localStorage.setItem('wifiPayments', JSON.stringify(data));
+
+      loadPayments();
     }
   </script>
 
