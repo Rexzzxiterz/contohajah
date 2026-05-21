@@ -2,189 +2,152 @@
 <html lang="id">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Happy Girlfriend Day</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Admin Panel WiFi</title>
   <script src="https://cdn.tailwindcss.com"></script>
-  <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
-  <style>
-    body {
-      font-family: 'Poppins', sans-serif;
-      background-color: #ffe6f0;
-      margin: 0;
-      padding: 0;
-      overflow-x: hidden;
-    }
-    h1, h2 {
-      font-family: 'Pacifico', cursive;
-    }
-    canvas {
-      position: fixed;
-      top: 0;
-      left: 0;
-      z-index: 0;
-      pointer-events: none;
-    }
-    body.lock-scroll {
-      height: 100vh;
-      overflow: hidden;
-    }
-  </style>
 </head>
-<body class="relative lock-scroll">
+<body class="bg-gradient-to-br from-black via-slate-900 to-blue-950 min-h-screen text-white p-4 sm:p-6 overflow-x-hidden">
 
-  <!-- Autoplay music on interaction -->
-  <audio id="birthdayMusic" loop>
-    <source src="https://files.catbox.moe/3re72v.mp3" type="audio/mp3" />
-  </audio>
+  <div class="max-w-5xl mx-auto">
 
-  <!-- Partikel cinta -->
-  <canvas id="loveCanvas"></canvas>
+    <div class="bg-white/10 backdrop-blur-xl border border-red-400/20 rounded-3xl shadow-2xl p-6 sm:p-8 mb-6">
+      <div class="flex flex-col sm:flex-row items-center justify-between gap-4">
+        <div>
+          <h1 class="text-3xl sm:text-4xl font-bold text-red-400">Admin Panel WiFi</h1>
+          <p class="text-gray-300 mt-2">Kontrol pembayaran pelanggan WiFi rumah</p>
+        </div>
 
-  <!-- Hero Section -->
-  <section class="min-h-screen flex flex-col justify-center items-center text-center z-10 relative px-4">
-    <h1 class="text-4xl md:text-5xl text-pink-600 font-bold mb-2">Happy Girlfriend Day</h1>
-    <h2 class="text-2xl md:text-3xl text-fuchsia-700 mb-6">Sayangku</h2>
-
-    <!-- Countdown -->
-    <div class="flex space-x-4 mb-6">
-      <div class="bg-white rounded-lg shadow-md px-4 py-2 text-center">
-        <p class="text-2xl font-bold" id="days">00</p>
-        <p class="text-sm">Hari</p>
-      </div>
-      <div class="bg-white rounded-lg shadow-md px-4 py-2 text-center">
-        <p class="text-2xl font-bold" id="hours">00</p>
-        <p class="text-sm">Jam</p>
-      </div>
-      <div class="bg-white rounded-lg shadow-md px-4 py-2 text-center">
-        <p class="text-2xl font-bold" id="minutes">00</p>
-        <p class="text-sm">Menit</p>
-      </div>
-      <div class="bg-white rounded-lg shadow-md px-4 py-2 text-center">
-        <p class="text-2xl font-bold" id="seconds">00</p>
-        <p class="text-sm">Detik</p>
+        <div class="w-full sm:w-auto flex flex-col sm:flex-row gap-3">
+          <input id="password" type="password" placeholder="Password Admin" class="px-4 py-3 rounded-2xl bg-white/10 border border-white/20 outline-none w-full sm:w-56" />
+          <button onclick="loginAdmin()" class="bg-red-500 hover:bg-red-400 transition-all px-6 py-3 rounded-2xl font-bold">
+            Login
+          </button>
+        </div>
       </div>
     </div>
 
-    <!-- Tombol yang mainkan musik & scroll -->
-    <button onclick="playMusicAndScroll()" class="bg-pink-500 text-white px-6 py-2 rounded-full shadow-lg hover:bg-pink-600">
-      Klik di sini ↓
-    </button>
-  </section>
+    <div id="adminContent" class="hidden space-y-6">
 
-  <!-- Section 2 -->
-  <section id="next" class="py-20 bg-white px-6 z-10 relative">
-    <div class="max-w-2xl mx-auto text-center">
-      <h2 class="text-3xl font-bold text-pink-600 mb-6">Kenangan Terindah</h2>
-      <p class="mb-10 text-gray-700">Semua momen bersamamu adalah kenangan yang tidak akan pernah kulupakan.</p>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
 
-      <h2 class="text-2xl font-semibold text-fuchsia-700 mb-4">Untuk pacarku yang tercinta</h2>
-      <p class="text-gray-800 mb-10 leading-relaxed">
-        Hallo sayang, Happy girlfriend day yaaa 💗💐, aku mau bilang kalok aku bersyukur banget punya kamu,
-        kamu orang baik yang selalu coba ngertiin keadaan aku, padahal aku sering bikin kamu kesel, nangis,
-        pokoknya kamu terbaik. Maafin aku yaaa belum bisa bahagiain kamu ngga kaya cowo di luar sana, tapi
-        nggapapa aku usahain untuk bisa bahagiain kamu aku pasti bisa. Pokoknya aku udah bersyukur dengan apa
-        yang kamu kasi ke aku, tapi aku selalu buat kamu kecewa maaf yaaa kalau aku jahat sama kamu. And
-        apapun keadaannya jangan jadiin alasan buat kita berpisah, okevyyy. Maafin aku yaaa sayangg 💗 aku janji
-        kedepannya akan membuat kamu bahagia dan ngga akan ngecewain kamu lagi 🫂💗
-      </p>
+        <div class="bg-white/10 border border-yellow-400/20 rounded-3xl p-5 backdrop-blur-xl">
+          <p class="text-gray-400 text-sm">Pending</p>
+          <h2 id="pendingCount" class="text-4xl font-bold text-yellow-300 mt-2">0</h2>
+        </div>
 
-      <h2 class="text-xl font-semibold text-pink-500">Ucapan</h2>
-      <p class="text-gray-700 mt-4">Aku sayang banget sama kamu, dan terima kasih udah tetap bertahan sama aku 💗</p>
+        <div class="bg-white/10 border border-green-400/20 rounded-3xl p-5 backdrop-blur-xl">
+          <p class="text-gray-400 text-sm">Success</p>
+          <h2 id="successCount" class="text-4xl font-bold text-green-300 mt-2">0</h2>
+        </div>
+
+        <div class="bg-white/10 border border-cyan-400/20 rounded-3xl p-5 backdrop-blur-xl">
+          <p class="text-gray-400 text-sm">Total Pembayaran</p>
+          <h2 class="text-4xl font-bold text-cyan-300 mt-2">Rp280K</h2>
+        </div>
+
+      </div>
+
+      <div class="bg-white/10 backdrop-blur-xl border border-white/20 rounded-3xl shadow-2xl p-4 sm:p-6">
+        <div class="flex items-center justify-between mb-5 flex-wrap gap-3">
+          <h2 class="text-2xl font-bold text-cyan-300">Daftar Pembayaran</h2>
+
+          <button onclick="addDummyPayment()" class="bg-cyan-500 hover:bg-cyan-400 px-5 py-2 rounded-xl font-semibold transition-all">
+            Tambah Data Dummy
+          </button>
+        </div>
+
+        <div id="paymentList" class="space-y-4"></div>
+      </div>
+
     </div>
-  </section>
 
-  <!-- Script: Love Particles -->
+  </div>
+
   <script>
-    const canvas = document.getElementById('loveCanvas');
-    const ctx = canvas.getContext('2d');
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
+    let pending = 0;
+    let success = 0;
 
-    const hearts = [];
-    function Heart() {
-      this.x = Math.random() * canvas.width;
-      this.y = Math.random() * canvas.height;
-      this.size = Math.random() * 5 + 2;
-      this.speedY = Math.random() * 1 + 0.5;
-    }
+    function loginAdmin() {
+      const password = document.getElementById('password').value;
 
-    Heart.prototype.update = function () {
-      this.y += this.speedY;
-      if (this.y > canvas.height) {
-        this.y = 0;
-        this.x = Math.random() * canvas.width;
+      if(password === 'adminwifi280') {
+        document.getElementById('adminContent').classList.remove('hidden');
+        alert('Login admin berhasil');
+      } else {
+        alert('Password salah');
       }
     }
 
-    Heart.prototype.draw = function () {
-      ctx.fillStyle = 'rgba(255,105,180,0.8)';
-      ctx.beginPath();
-      ctx.moveTo(this.x, this.y);
-      ctx.bezierCurveTo(this.x + this.size, this.y - this.size,
-                        this.x + this.size * 2, this.y + this.size,
-                        this.x, this.y + this.size * 2);
-      ctx.bezierCurveTo(this.x - this.size * 2, this.y + this.size,
-                        this.x - this.size, this.y - this.size,
-                        this.x, this.y);
-      ctx.fill();
+    function updateStats() {
+      document.getElementById('pendingCount').innerText = pending;
+      document.getElementById('successCount').innerText = success;
     }
 
-    function initHearts() {
-      for (let i = 0; i < 100; i++) {
-        hearts.push(new Heart());
-      }
+    function addDummyPayment() {
+      const paymentList = document.getElementById('paymentList');
+
+      const now = new Date();
+      const tanggal = now.toLocaleDateString('id-ID');
+      const jam = now.toLocaleTimeString('id-ID');
+
+      pending++;
+      updateStats();
+
+      const item = document.createElement('div');
+      item.className = 'bg-black/30 border border-yellow-400/20 rounded-2xl p-5';
+
+      item.innerHTML = `
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-3">
+          <div>
+            <h3 class="text-xl font-bold text-white">Pelanggan WiFi</h3>
+            <p class="text-gray-400 text-sm">${tanggal} • ${jam}</p>
+          </div>
+
+          <span class="bg-yellow-500/20 text-yellow-300 px-4 py-2 rounded-full text-sm font-semibold w-fit">
+            PENDING
+          </span>
+        </div>
+
+        <div class="space-y-2 text-sm mb-4">
+          <p class="text-gray-300">Metode Pembayaran: QRIS</p>
+          <p class="text-gray-300">Total: Rp280.000</p>
+          <p class="text-green-400">Bukti Transfer: bukti-transfer.jpg</p>
+        </div>
+
+        <div class="flex flex-col sm:flex-row gap-3">
+          <button onclick="approvePayment(this)" class="flex-1 bg-green-500 hover:bg-green-400 py-3 rounded-xl font-bold transition-all">
+            Konfirmasi Success
+          </button>
+
+          <button onclick="rejectPayment(this)" class="flex-1 bg-red-500 hover:bg-red-400 py-3 rounded-xl font-bold transition-all">
+            Tolak Pembayaran
+          </button>
+        </div>
+      `;
+
+      paymentList.prepend(item);
     }
 
-    function animate() {
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
-      hearts.forEach(h => {
-        h.update();
-        h.draw();
-      });
-      requestAnimationFrame(animate);
+    function approvePayment(button) {
+      const card = button.closest('.bg-black\/30');
+
+      pending--;
+      success++;
+      updateStats();
+
+      card.className = 'bg-black/30 border border-green-400/20 rounded-2xl p-5';
+
+      card.querySelector('span').className = 'bg-green-500/20 text-green-300 px-4 py-2 rounded-full text-sm font-semibold w-fit';
+      card.querySelector('span').innerText = 'SUCCESS';
+
+      card.querySelector('.flex.flex-col.sm\\:flex-row.gap-3').remove();
     }
 
-    initHearts();
-    animate();
-    window.addEventListener('resize', () => {
-      canvas.width = window.innerWidth;
-      canvas.height = window.innerHeight;
-    });
-  </script>
-
-  <!-- Script: Countdown -->
-  <script>
-    const countdown = () => {
-      const endDate = new Date("2025-08-01T00:00:00").getTime(); // Ganti jika perlu
-      const now = new Date().getTime();
-      const timeLeft = endDate - now;
-
-      const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
-      const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-      const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
-      const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
-
-      document.getElementById('days').textContent = days.toString().padStart(2, '0');
-      document.getElementById('hours').textContent = hours.toString().padStart(2, '0');
-      document.getElementById('minutes').textContent = minutes.toString().padStart(2, '0');
-      document.getElementById('seconds').textContent = seconds.toString().padStart(2, '0');
-    };
-
-    countdown();
-    setInterval(countdown, 1000);
-  </script>
-
-  <!-- Script: Play music, unlock scroll, scroll to next -->
-  <script>
-    function playMusicAndScroll() {
-      const music = document.getElementById('birthdayMusic');
-      music.play().catch(e => {
-        console.log("Autoplay gagal, user harus interaksi manual");
-      });
-
-      // Hapus kunci scroll dan scroll ke section selanjutnya
-      document.body.classList.remove('lock-scroll');
-      document.getElementById('next').scrollIntoView({ behavior: 'smooth' });
+    function rejectPayment(button) {
+      const card = button.closest('.bg-black\/30');
+      pending--;
+      updateStats();
+      card.remove();
     }
   </script>
 
